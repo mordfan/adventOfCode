@@ -1,11 +1,12 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/9
 
+from os import path
 from collections.abc import Iterator
 
 
 def read_tiles(file_name: str) -> Iterator[tuple[int, int]]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline().rstrip()):
             yield tuple(map(int, line.split(',')))
 
@@ -32,13 +33,6 @@ def main(file_name: str) -> None:
                 bestT = t
 
     print(f'{bestS=}, {bestT=}, {bestF=:,}')
-
-
-    # xMax += 2
-    # yMax += 2
-    # for y in range(yMax):
-    #     print(['x' if (x, y) in tiles else '.' for x in range(xMax)])
-
 
 
 if __name__ == "__main__":

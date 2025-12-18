@@ -1,11 +1,12 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/3
 
+from os import path
 from collections.abc import Iterator
 
 
 def read_input(file_name: str) -> Iterator[str]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while True:
             line = file.readline()
             if not line:

@@ -1,10 +1,11 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/2#part2
 
+from os import path
 from collections.abc import Iterator
 
 
-divisors: dict[int, list[int]] = {
+DIVISORS: dict[int, list[int]] = {
         2: [1],
         3: [1],
         4: [1, 2],
@@ -16,18 +17,18 @@ divisors: dict[int, list[int]] = {
 def get_divisors(idLen: int) -> list[int]:
     if idLen < 2:
         return []
-    if idLen not in divisors.keys():
-        divisors[idLen] = [1]
+    if idLen not in DIVISORS.keys():
+        DIVISORS[idLen] = [1]
         for i in range(2, int(idLen/2) + 1):
             if idLen % i != 0:
                 continue
-            divisors[idLen].append(i)
-    return divisors[idLen]
+            DIVISORS[idLen].append(i)
+    return DIVISORS[idLen]
 
 
 def get_ranges(file_name: str) -> Iterator[tuple[int, int]]:
     data: str = ''
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         data = file.read().strip()
 
     start: int = 0

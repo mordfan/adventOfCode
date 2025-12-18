@@ -1,11 +1,12 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/5#part2
 
+from os import path
 from collections.abc import Iterator
 
 
 def get_ingredients(file_name: str) -> Iterator[int | tuple[int, int]]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline()):
             if len(line) <= 1:
                 continue
@@ -76,6 +77,7 @@ def main(file_name: str) -> None:
         # print(f"{cmin}-{cmax}={i}")
     print(f"{total=:,}")
     print(f"{loops=}")
+
 
 if __name__ == '__main__':
     # main('test.txt')

@@ -1,12 +1,13 @@
-#!/bin/python
+#!/bin/python3
 # https://adventofcode.com/2025/day/1#part2
 
+from os import path
 from collections.abc import Iterator
 
 
 def get_sequence(file_name: str) -> Iterator[tuple[str, int]]:
     """Returns tuple(direction, clicks)"""
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while True:
             line = file.readline()
             if not line:

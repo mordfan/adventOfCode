@@ -1,14 +1,17 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/10
+
+from os import path
 from collections.abc import Iterator
 from math import pow
 from itertools import chain, combinations
+
 
 COMBO_CACHE: dict[list[list[int]]] = {}
 
 
 def get_data(file_name: str) -> Iterator[tuple[str, list[list[int]], list[int]]]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline().rstrip()):
             assert line.startswith('['), "invalid begining of line"
 
@@ -47,8 +50,8 @@ def get_combos(length: int) -> list[list[int]]:
     return combos
 
 
-def find_best_combo(lights: str, wiring: list[tuple]) -> int | None:
-    print(f"{lights=})") # , {wiring=}")
+def find_best_combo(lights: str, wiring: list[list[int]]) -> int | None:
+    print(f"{lights=}), {wiring=}")
 
     ret: int | None = None
     length = len(lights)
@@ -71,7 +74,7 @@ def find_best_combo(lights: str, wiring: list[tuple]) -> int | None:
         success = state_bin == target_bin
 
         if success:
-           print(f"    {('success' if success else 'fail')}, (state={fmt.format(state_bin)}), cnt={press_cnt}, {', '.join([str(wiring[c]) for c in combos])}")
+            print(f"    {('success' if success else 'fail')}, (state={fmt.format(state_bin)}), cnt={press_cnt}, {', '.join([str(wiring[c]) for c in combos])}")
 
         if success and (ret is None or ret > press_cnt):
             ret = press_cnt
@@ -89,6 +92,7 @@ def main(file_name: str) -> None:
             total += n
 
     print(f"\n{total=:,}")
+
 
 if __name__ == "__main__":
     # main('example.txt')

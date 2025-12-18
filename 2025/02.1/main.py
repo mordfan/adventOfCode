@@ -1,12 +1,13 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/2
 
+from os import path
 from collections.abc import Iterator
 
 
 def get_ranges(file_name: str) -> Iterator[tuple[int, int]]:
     data: str = ''
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         data = file.read().strip()
 
     start: int = 0

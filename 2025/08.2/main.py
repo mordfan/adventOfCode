@@ -1,13 +1,14 @@
 #!/bin/python3
-# https://adventofcode.com/2025/day/8
+# https://adventofcode.com/2025/day/8#part2
 
+from os import path
 from collections.abc import Iterator
 from math import pow, sqrt
 from heapq import heapify, heappush, heappop
-from functools import reduce
+
 
 def get_junction_boxes(file_name: str) -> Iterator[tuple[int, int, int]]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline().rstrip()):
             x, y, z, *_ = map(int, line.split(',', maxsplit=4))
             yield (x, y, z)

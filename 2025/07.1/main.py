@@ -1,12 +1,13 @@
 #!/bin/python3
 # https://adventofcode.com/2025/day/7
 
+from os import path
 from collections.abc import Iterator
 
 
 def get_data(file_name: str) -> Iterator[str]:
-    with open(file_name, mode='r', encoding='utf-8') as file:
-        while(line := file.readline().rstrip()):
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
+        while (line := file.readline().rstrip()):
             yield line
 
 
@@ -34,6 +35,7 @@ def main(file_name: str) -> None:
 
     print(f"{beams=}")
     print(f"total number of splits={total:,}")
+
 
 if __name__ == '__main__':
     # main('example.txt')

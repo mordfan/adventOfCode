@@ -1,12 +1,14 @@
 #!/bin/python3
-# https://adventofcode.com/2024/day/1
+# https://adventofcode.com/2024/day/1#part2
+
+from os import path
 
 
 def get_lists_of_ids(file_name: str) -> tuple[list[int], list[int]]:
     l: list[int] = []
     r: list[int] = []
 
-    with open(file_name, mode='r', encoding='utf-8') as file:
+    with open(path.join('data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline().rstrip()):
             spacer = line.find(' ')
             if spacer < 0:
