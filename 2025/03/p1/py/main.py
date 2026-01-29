@@ -6,7 +6,7 @@ from collections.abc import Iterator
 
 
 def read_input(file_name: str) -> Iterator[str]:
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8') as file:
         while True:
             line = file.readline()
             if not line:
