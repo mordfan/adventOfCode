@@ -6,7 +6,7 @@ from collections.abc import Iterator
 
 
 def read_grid_from_file(file_name: str) -> Iterator[str]:
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8', newline='\n') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8', newline='\n') as file:
         while (line := file.readline()):
             yield line.strip()
 
