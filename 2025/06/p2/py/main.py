@@ -8,7 +8,7 @@ from functools import reduce
 
 def get_data(file_name: str) -> Iterator[tuple[list[int], str]]:
     lines: list[str] = []
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline()):
             lines.append(line.replace('\n', ' '))
 

@@ -7,7 +7,7 @@ from functools import reduce
 
 def get_data(file_name: str) -> tuple[list[list[int]], list[str]]:
     data: list[list[str]] = []
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline().rstrip()):
             data.append(line.split())
     numbers: list[list[int]] = [list(map(int, y)) for y in zip(*data[:-1])]
