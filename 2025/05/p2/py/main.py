@@ -6,7 +6,7 @@ from collections.abc import Iterator
 
 
 def get_ingredients(file_name: str) -> Iterator[int | tuple[int, int]]:
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline()):
             if len(line) <= 1:
                 continue

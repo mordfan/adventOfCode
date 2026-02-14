@@ -7,7 +7,7 @@ from os import path
 def get_ingredients(file_name: str) -> tuple[list[tuple[int, int]], list[int]]:
     fresh: list[tuple[int, int]] = []
     avail: list[int] = []
-    with open(path.join('..', 'data', file_name), mode='r', encoding='utf-8') as file:
+    with open(path.join('..', '..', 'data', file_name), mode='r', encoding='utf-8') as file:
         while (line := file.readline()):
             if len(line) <= 1:
                 continue
